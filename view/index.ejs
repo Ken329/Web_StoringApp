@@ -17,6 +17,25 @@
             <button class="body-button" id="body_button_fill" onclick="fill()">Fill in</button>
             <button class="body-button sec-btn" id="body-button_info" onclick="info()">Info</button>
         </div>
+        <form action="/submit" method="POST" id="fill_container" class="fill-container">
+            <input type="text" name="first_name" id="first_name" class="fill_input" placeholder="First Name">
+            <input type="text" name="last_name" id="last_name" class="fill_input" placeholder="Last Name">
+            <input type="text" name="age" id="age" class="fill_input" placeholder="Age">
+            <input type="text" name="kg" id="kg" class="fill_input" placeholder="Weight">
+            <input type="text" name="height" id="height" class="fill_input" placeholder="Height">
+            <button class="fill-btn" id="fill_btn" type="submit">Submit</button>
+        </form>
+        <div id="info_container" class="info-container">
+            <table class="info-table">
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Height</th>
+                <tbody id="info_tbody"></tbody>
+            </table>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
