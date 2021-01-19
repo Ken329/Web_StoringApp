@@ -1,7 +1,5 @@
 //static files
 const express = require('express')
-const parser = require('body-parser')
-const { check, validateResult} = require('express-validator')
 const app = express()
 const port = 3000
 const dbService = require('./static/js/dbService')
@@ -10,8 +8,6 @@ app.use(express.static('static'))
 app.use('/css', express.static(__dirname + 'static/css'))
 app.use('/js', express.static(__dirname + 'static/js'))
 
-const urlEncode = parser.urlencoded({extended: false})
-
 //set views
 app.set('views', './view')
 app.set('view engine', 'ejs')
@@ -19,7 +15,7 @@ app.set('view engine', 'ejs')
 app.get('', (req, res)=>{
     res.render('index')
 })
-app.post('/submit', urlEncode, (req, res)=>{
+app.post('/submit', (req, res)=>{
     var firstName = req.body.first_name
     var lastName = req.body.last_name
     var age = req.body.age
@@ -37,7 +33,7 @@ app.post('/submit', urlEncode, (req, res)=>{
     })
     .catch(err => console.log(err))
 })
-app.get('/getInfoData', urlEncode, (req, res)=>{
+app.get('/getInfoData', (req, res)=>{
     const db = dbService.getDbServiceInstance()
 
     const result = db.getInfoData()
